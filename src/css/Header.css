@@ -1,0 +1,50 @@
+.header-wrapper {
+  position: sticky !important;
+  background: #ffff;
+  z-index: 10 !important;
+  top: 0px !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 24px;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom-color 0.3s ease;
+  width: 100% !important;
+  height: 5rem !important;
+}
+
+.header-logo-wrapper {
+  flex: 0 0 40%;
+}
+
+.menu-div {
+  flex: 0 0 60%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+}
+
+.bnt-group {
+  margin-left: 10px;
+  display: flex !important;
+  gap: 10px;
+}
+
+.login-btn,
+.signup-btn {
+  padding: 10px 25px !important;
+  background: #009f7f !important;
+  color: #ffff;
+  border-radius: 10px !important;
+  border: none;
+  cursor: pointer;
+}
+
+.tex-link {
+  cursor: pointer;
+}
+
+.tex-link:hover {
+  color: #009f7f;
+}

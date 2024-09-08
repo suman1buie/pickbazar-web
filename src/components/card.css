@@ -1,0 +1,70 @@
+.card-outer-wrapper {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+.card-wrapper {
+  border-radius: 4px;
+  box-shadow: 0 0 15px #ccbebe;
+  flex: 1 1 calc(20% - 20px); /* Each card takes up 25% of the row minus some margin */
+  box-sizing: border-box;
+  padding: 5px;
+  width: calc(20% - 20px) !important;
+  height: 100%;
+  text-align: center;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.card-contant {
+  margin-top: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.card-span {
+  color: gray;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  padding: 5px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.user-name-content {
+  text-align: center;
+  padding: 3px;
+  box-shadow: 0 0 3px #ccbebe;
+  border-radius: 4px;
+  color: gray;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.user-name-content:hover {
+  color: #009f7f;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: none;
+}
+
+.catagory {
+  text-align: center;
+  padding: 5px;
+  cursor: pointer;
+  background-color: rgb(33, 70, 70);
+  color: aliceblue;
+  border-radius: 5px;
+}
+
+.catagory:hover {
+  text-align: center;
+  padding: 5px;
+  cursor: pointer;
+  color: rgb(33, 70, 70);
+  background-color: white;
+}
