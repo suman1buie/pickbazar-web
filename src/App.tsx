@@ -7,12 +7,38 @@ import { Home } from "./pages/Home";
 import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import Pages from "./pages/Pages";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import axiosInstance from "./api/axiosInstance";
+import { userInfo } from "./api/getUserInfo";
+import { setUserData } from "./redux/slicer/userSlice";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      const getSetUserData = async () => {
+        axiosInstance.defaults.headers.common[
+          "Authorization"
+        ] = `Token ${token}`;
+        const userData = await userInfo();
+        if (userData[0]) {
+          dispatch(setUserData(userData[1].data));
+        } else {
+          delete axiosInstance.defaults.headers.common["Authorization"];
+          localStorage.removeItem("token");
+        }
+      };
+      getSetUserData();
+    }
+  }, []);
+
   return (
     <>
       <BrowserRouter>
-        <Header title="PickBazar" />
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

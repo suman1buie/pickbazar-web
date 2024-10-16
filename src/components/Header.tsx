@@ -4,9 +4,16 @@ import { useNavigate } from "react-router-dom";
 import { Modal } from "antd";
 import { useState } from "react";
 import AuthenticationComponent from "../modals/AuthenticationComponent";
+import { useSelector } from "react-redux";
 
-const Header = (): JSX.Element => {
+type HeaderType = {
+  isLogedIn?: boolean;
+};
+
+const Header = ({}: HeaderType): JSX.Element => {
   const navigate = useNavigate();
+  const isLogedIn = useSelector((state: any) => state.user.user.isLoggedIn);
+
   const [open, setOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
   const [type, setType] = useState<string>("login");
@@ -35,17 +42,21 @@ const Header = (): JSX.Element => {
         <span className="tex-link" onClick={() => navigate("/pages")}>
           Pages
         </span>
-        <div className="bnt-group">
-          <button className="login-btn" onClick={() => showLoading("login")}>
-            Login
-          </button>
-          <button
-            className="signup-btn"
-            onClick={() => showLoading("register")}
-          >
-            Register as user
-          </button>
-        </div>
+        {!isLogedIn ? (
+          <div className="bnt-group">
+            <button className="login-btn" onClick={() => showLoading("login")}>
+              Login
+            </button>
+            <button
+              className="signup-btn"
+              onClick={() => showLoading("register")}
+            >
+              Register as user
+            </button>
+          </div>
+        ) : (
+          <div>Profile</div>
+        )}
         <Modal
           title={null}
           footer={null}
